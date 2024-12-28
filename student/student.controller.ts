@@ -14,9 +14,9 @@ import {
   export class StudentController {
     constructor(private readonly studentService: StudentService) {}
   
-    @Post()
-    async create(@Body() student: Partial<Student>): Promise<Student> {
-      return await this.studentService.create(student);
+    @Delete(':id')
+    async delete(@Param('id') id: number): Promise<void> {
+      return await this.studentService.delete(id);
     }
   
   }
