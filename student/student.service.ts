@@ -10,8 +10,7 @@ export class StudentService {
     private readonly studentRepository: Repository<Student>,
   ) {}
 
-async update(id: number, student: Partial<Student>): Promise<Student> {
-    await this.studentRepository.update(id, student);
-    return await this.studentRepository.findOne({ where: { id } });
+async findAll(): Promise<Student[]> {
+    return await this.studentRepository.find();
   }
 }
