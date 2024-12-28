@@ -14,12 +14,9 @@ import {
   export class StudentController {
     constructor(private readonly studentService: StudentService) {}
   
-    @Put(':id')
-    async update(
-      @Param('id') id: number,
-      @Body() student: Partial<Student>,
-    ): Promise<Student> {
-      return await this.studentService.update(id, student);
+     @Get()
+    async findAll(): Promise<Student[]> {
+      return await this.studentService.findAll();
     }
   
   }
