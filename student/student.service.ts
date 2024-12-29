@@ -10,6 +10,9 @@ export class StudentService {
     private readonly studentRepository: Repository<Student>,
   ) {}
 
+async findAll(): Promise<Student[]> {
+    return await this.studentRepository.find();
+}
 
   async delete(id: number): Promise<void> {
     await this.studentRepository.delete(id);
@@ -18,6 +21,6 @@ export class StudentService {
     await this.studentRepository.update(id, student);
     return await this.studentRepository.findOne({ where: { id } });
 }
-  }
 
+  }
 }

@@ -15,6 +15,11 @@ import {
     constructor(private readonly studentService: StudentService) {}
   
 
+     @Get()
+    async findAll(): Promise<Student[]> {
+      return await this.studentService.findAll();
+   }
+
     @Delete(':id')
     async delete(@Param('id') id: number): Promise<void> {
       return await this.studentService.delete(id);
@@ -26,6 +31,7 @@ import {
     ): Promise<Student> {
       return await this.studentService.update(id, student);
 } create-students
+
     }
   
   }
